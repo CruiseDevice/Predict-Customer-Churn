@@ -26,7 +26,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, plot_roc_curve
 
 import joblib
 os.environ['QT_QPA_PLATFORM'] = 'offscreen'
@@ -309,6 +309,10 @@ def train_models(X_train, X_test, y_train, y_test):
     # save best model
     joblib.dump(cv_rfc.best_estimator_, './models/rfc_model.pkl')
     joblib.dump(lrc, './models/logistic_model.pkl')
+
+    # plot roc_curve
+    lrc_plot = plot_roc_curve(lrc, X_test, y_test)
+    plt.savefig('./images/results/roc_curve.png')
 
     return y_train_preds_rf, y_test_preds_rf, y_train_preds_lr, y_test_preds_lr
 

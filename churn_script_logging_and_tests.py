@@ -1,3 +1,22 @@
+'''
+Churn library testing script
+
+This script contains functions to test the functionalities of the Churn
+Library. It logs the results of the tests to a log file for review and 
+debugging purposes.
+
+Usage:
+    Run this script to execute all tests:
+    ```sh
+    python churn_script_logging_and_tests.py
+    ```
+
+Author: Akash Chavan
+Creation Date: 14/06/2024
+'''
+
+
+
 import os
 import logging
 import churn_library as cls
